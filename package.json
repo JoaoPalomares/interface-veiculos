@@ -1,0 +1,15 @@
+{
+  "name": "interface-veiculos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "João Pedro Palomares, Gabriel Henrique Santos de Barros, Rafael Seles de Souza, Rian Siqueira Durigan, Sarah Stefany de Souza",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

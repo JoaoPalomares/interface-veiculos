@@ -22,12 +22,6 @@ body {
 .form-floating {
     margin: 2% auto;
     width: 400px;
-    
-}
-
-textarea:focus, input:focus {
-    box-shadow: 0 0 0 0;
-    outline: 0;
 }
 
 h1 {
@@ -48,25 +42,41 @@ h1 {
     display: flex;
 }
 
-.navbar-brand, .nav-link{
-    color: white!important;
+.navbar-brand,
+.nav-link {
+    color: white !important;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     text-decoration: underline;
 }
 
-.navbar{
-    background-color: var(--cor02)!important;
+.navbar {
+    background-color: var(--cor02) !important;
     height: 110px;
 }
 
-.navbar-toggler{
+.navbar-toggler {
     background-color: var(--cor03);
 }
 
-.form-control{
-    background: transparent!important;
+.form-control {
+    background: transparent !important;
     border: black solid;
-    
+}
+
+label {
+    background-color: transparent !important;
+}
+
+.form-select{
+    margin: 2% auto;
+    width: 400px;
+    border: black solid;
+    background-color: transparent;
+    height: 60px;
+}
+
+::placeholder {
+    color: transparent;
 }

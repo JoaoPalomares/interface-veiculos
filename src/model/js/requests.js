@@ -7,18 +7,20 @@ function cadastrar() {
     const dados = {
         marca: document.querySelector('[name="marca"]').value,
         modelo: document.querySelector('[name="modelo"]').value,
-        versao: document.querySelector('[name="versao"]').value,
+        ano_fabricacao: document.querySelector('[name="ano_fabricacao"]').value,
         placa: document.querySelector('[name="placa"]').value,
+        cor: document.querySelector('[name="cor"]').value,
+        peso: document.querySelector('[name="peso"]').value,
         combustivel: document.querySelector('[name="combustivel"]').value,
         eixos: document.querySelector('[name="eixos"]').value,
-        peso: document.querySelector('[name="peso"]').value
+        tipo_veiculo: document.querySelector('[name="tipo_veiculo"]').value
     }
 
     console.log(dados);
     // Requisição para back-end
 
     // Faz requisição ao servidor usando o verbo POST, enviando os dados para o servidor
-    fetch(`${url_server}/cadastro`, {
+    fetch(`${url_server}/cadastrar`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +41,7 @@ function cadastrar() {
         });
 }
 
-function listarPessoas() {
+function listarVeiculos() {
     fetch(`${url_server}/veiculos`)
         .then(response => response.json())
         .then(data => {
@@ -47,40 +49,45 @@ function listarPessoas() {
                 console.log(veiculos);
             })
         });
-
-    // exibir informações na tabela
-    data.forEach(veiculos => {
-        // Criando os elementos HTML
-        const tabela = document.querySelector('table');
-        const elementTr = document.createElement('tr');
-        const tdMarca = document.createElement('td');
-        const tdModelo = document.createElement('td');
-        const tdVersao = document.createElement('td');
-        const tdPlaca = document.createElement('td');
-        const tdCombustivel = document.createElement('td');
-        const tdEixos = document.createAttribute('td');
-        const tdPeso = document.createAttribute('td');
-
-
-        // Inserindo os dados da pessoa no elemento	
-        tdMarca.textContent = veiculos.marca;
-        tdModelo.textContent = veiculos.modelo;
-        tdVersao.textContent = veiculos.versao;
-        tdPlaca.textContent = veiculos.placa;
-        tdCombustivel.textContent = veiculos.combustivel;
-        tdEixos.textContent = veiculos.eixos;
-        tdPeso.textContent = veiculos.peso;
-
-        // Inserindo os elementos nas linhas da tabela (tr => TableRow)
-        elementTr.appendChild(tdMarca);
-        elementTr.appendChild(tdModelo);
-        elementTr.appendChild(tdVersao);
-        elementTr.appendChild(tdPlaca);
-        elementTr.appendChild(tdCombustivel);
-        elementTr.appendChild(tdEixos);
-        elementTr.appendChild(tdPeso);
-
-        // Adicionando a linha com as informações na tabela
-        tabela.appendChild(elementTr);
-    })
+    
+        data.forEach(veiculos => {
+            // Criando os elementos HTML
+            const tabela = document.querySelector('table');
+            const elementTr = document.createElement('tr');
+            const tdMarca = document.createElement('td');
+            const tdModelo = document.createElement('td');
+            const tdAno_Fabricacao = document.createElement('td');
+            const tdPlaca = document.createElement('td');
+            const tdCor = document.createElement('td');
+            const tdPeso = document.createAttribute('td');
+            const tdCombustivel = document.createAttribute('td');
+            const tdEixos = document.createAttribute('td');
+            const tdTipos_Veiculo = document.createAttribute('td');
+    
+    
+            // Inserindo os dados do veiculo no elemento	
+            tdMarca.textContent = veiculos.marca;
+            tdModelo.textContent = veiculos.modelo;
+            tdAno_Fabricacao.textContent = veiculos.ano_fabricacao;
+            tdPlaca.textContent = veiculos.placa;
+            tdCor.textContent = veiculos.cor;
+            tdPeso.textContent = veiculos.peso;
+            tdCombustivel.textContent = veiculos.combustivel;
+            tdEixos.textContent = veiculos.eixos;
+            tdTipos_Veiculo.textContent = veiculos.tipo_veiculo;
+    
+            // Inserindo os elementos nas linhas da tabela (tr => TableRow)
+            elementTr.appendChild(tdMarca);
+            elementTr.appendChild(tdModelo);
+            elementTr.appendChild(tdAno_Fabricacao);
+            elementTr.appendChild(tdPlaca);
+            elementTr.appendChild(tdCor);
+            elementTr.appendChild(tdPeso);
+            elementTr.appendChild(tdCombustivel);
+            elementTr.appendChild(tdEixos);
+            elementTr.appendChild(tdTipos_Veiculo);
+            
+            // Adicionando a linha com as informações na tabela                                                    
+            tabela.appendChild(elementTr);
+        })
 }
